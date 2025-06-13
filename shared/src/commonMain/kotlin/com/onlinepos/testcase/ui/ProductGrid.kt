@@ -13,9 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import com.onlinepos.testcase.model.Product
 import com.onlinepos.testcase.util.colorFromHex
+import com.onlinepos.testcase.util.formatPrice
 
 @Composable
 fun ProductGrid(
@@ -66,7 +68,7 @@ fun ProductTile(
         ) {
             Text(text = product.name, style = MaterialTheme.typography.body1)
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = "%.2f".format(product.price), style = MaterialTheme.typography.caption)
+            Text(text = formatPrice(product.price), style = MaterialTheme.typography.caption)
         }
     }
 }

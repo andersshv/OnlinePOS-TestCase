@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.onlinepos.testcase.model.CartItem
 import com.onlinepos.testcase.state.MainViewModel
+import com.onlinepos.testcase.util.formatPrice
 
 @Composable
 fun CartView(
@@ -57,7 +58,7 @@ fun CartView(
         // Total + Pay Button
         Column(modifier = Modifier.padding(top = 8.dp)) {
             Text(
-                text = "Total: %.2f".format(viewModel.totalPrice),
+                text = "Total: " + formatPrice(viewModel.totalPrice),
                 style = MaterialTheme.typography.h6
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -93,7 +94,7 @@ fun CartItemRow(
             modifier = Modifier.weight(1f)
         )
         Text(
-            text = "%.2f".format(item.totalPrice),
+            text = formatPrice(item.totalPrice),
             modifier = Modifier.width(60.dp)
         )
         IconButton(onClick = onRemove) {
