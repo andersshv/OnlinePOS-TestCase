@@ -1,5 +1,4 @@
 import androidx.compose.runtime.Composable
+import com.onlinepos.testcase.ui.MainScreen
 
-actual fun getPlatformName(): String = "Android"
-
-@Composable fun MainView() = App()
+@Composable fun MainView() = MainScreen()

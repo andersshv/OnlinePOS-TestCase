@@ -1,0 +1,29 @@
+black bg for sunny weather
+and sharp colors darkish for visibility, with white text?
+
+*******Selve interaktionen under bestillingen er her******
+Skal ekspedienten stå med en tlf ved bordet,
+eller med en papirblok?
+
+Er denne mpos kun ved skranken beregnet?
+
+*******Alt dette nedenfor er efter Betal knap click:******
+
+on pay clicked, a popup appears:
+with:
+back btn, a swirvl, sends amount to dankort automat,
+afventer svar fra dkautomat,
+ med valgmulighed: indtast beløb manuelt i dkautomat
+ har manuelt tryk på beløb modtaget
+
+Ellers i begge tilfælde når beløb er modtaget vis kvittering på skærm,
+med print kvitterings knap (optional)
+
+når dette vindue lukkes gemmes kvitteringen i en historik, som kan tilgåes
+fra main vindue.
+
+Historik kvittering kan loades ind i main, men med den undtagelse,
+at ordrer punkterne markeres som allerede betalt.
+
+Hvis der heri fjernes eller tilføjes udregner programmet selv om der
+skal betales eller penge tilbage.

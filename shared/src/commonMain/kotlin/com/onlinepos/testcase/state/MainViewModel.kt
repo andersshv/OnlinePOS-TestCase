@@ -1,0 +1,61 @@
+package com.onlinepos.testcase.state
+
+import androidx.compose.runtime.*
+import com.onlinepos.testcase.data.MockData
+import com.onlinepos.testcase.model.CartItem
+import com.onlinepos.testcase.model.Product
+import com.onlinepos.testcase.model.ProductGroup
+
+class MainViewModel {
+
+    // Product Groups
+    val productGroups: List<ProductGroup> = MockData.productGroups
+
+    // Selected Group
+    var selectedGroup by mutableStateOf(productGroups.first())
+        private set
+
+    // Filtered Products for the selected group
+    val currentProducts: List<Product>
+        get() = MockData.products.filter { it.groupId == selectedGroup.id }
+
+    // Cart items
+    var cartItems by mutableStateOf<List<CartItem>>(emptyList())
+        private set
+
+    // --- Actions ---
+
+    fun selectGroup(group: ProductGroup) {
+        selectedGroup = group
+    }
+
+    fun addToCart(product: Product) {
+        val existing = cartItems.find { it.product.id == product.id }
+        cartItems = if (existing != null) {
+            cartItems.map {
+                if (it.product.id == product.id)
+                    it.copy(quantity = it.quantity + 1)
+                else it
+            }
+        } else {
+            cartItems + CartItem(product)
+        }
+    }
+
+    fun removeFromCart(productId: String) {
+        cartItems = cartItems.filterNot { it.product.id == productId }
+    }
+
+    fun clearCart() {
+        cartItems = emptyList()
+    }
+
+    fun simulatePayment() {
+        // In a real app, you'd trigger a payment API. Here we just clear.
+        clearCart()
+    }
+
+    // Total Price
+    val totalPrice: Double
+        get() = cartItems.sumOf { it.totalPrice }
+}
