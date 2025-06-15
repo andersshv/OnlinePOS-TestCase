@@ -1,10 +1,7 @@
 package com.onlinepos.testcase.ui
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -15,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.onlinepos.testcase.model.ProductGroup
 import com.onlinepos.testcase.util.colorFromHex
+import com.onlinepos.testcase.util.dimOutColor
 
 @Composable
 fun ProductGroupList(
@@ -25,9 +23,6 @@ fun ProductGroupList(
 ) {
     Column(
         modifier = modifier
-            .verticalScroll(rememberScrollState())
-            .padding(end = 4.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
             text = "Groups",
@@ -35,12 +30,19 @@ fun ProductGroupList(
             modifier = Modifier.padding(bottom = 8.dp)
         )
 
-        productGroups.forEach { group ->
-            ProductGroupButton(
-                group = group,
-                isSelected = group.id == selectedGroup.id,
-                onClick = { onGroupSelected(group) }
-            )
+        Column(
+            modifier = modifier
+                .verticalScroll(rememberScrollState())
+                .padding(end = 4.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            productGroups.forEach { group ->
+                ProductGroupButton(
+                    group = group,
+                    isSelected = group.id == selectedGroup.id,
+                    onClick = { onGroupSelected(group) }
+                )
+            }
         }
     }
 }
@@ -52,8 +54,8 @@ fun ProductGroupButton(
     onClick: () -> Unit
 ) {
     val backgroundColor = colorFromHex(group.colorHex)
-    val contentColor = if (isSelected) MaterialTheme.colors.onPrimary else MaterialTheme.colors.onSurface
-    val bg = if (isSelected) backgroundColor else backgroundColor.copy(alpha = 0.2f)
+    val contentColor = /*if (isSelected) MaterialTheme.colors.onPrimary else */MaterialTheme.colors.onSurface
+    val bg = /*if (isSelected) backgroundColor else*/ dimOutColor(backgroundColor)
 
     Surface(
         modifier = Modifier
@@ -61,7 +63,8 @@ fun ProductGroupButton(
             .height(48.dp)
             .clickable(onClick = onClick),
         color = bg,
-        elevation = if (isSelected) 4.dp else 0.dp
+//        elevation = if (isSelected) 4.dp else 0.dp,
+        border = if (isSelected) BorderStroke(width = 1.dp, color = colorFromHex("#000000")) else null
     ) {
         Box(
             contentAlignment = Alignment.CenterStart,

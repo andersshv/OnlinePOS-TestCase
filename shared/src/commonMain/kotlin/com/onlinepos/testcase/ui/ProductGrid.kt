@@ -12,11 +12,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import com.onlinepos.testcase.model.Product
+import com.onlinepos.testcase.model.ProductGroup
 import com.onlinepos.testcase.util.colorFromHex
+import com.onlinepos.testcase.util.dimOutColor
 import com.onlinepos.testcase.util.formatPrice
 
 @Composable
@@ -25,19 +25,20 @@ fun ProductGrid(
     onProductClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier
+    ) {
         Text(
             text = "Products",
             style = MaterialTheme.typography.h6,
-            modifier = Modifier.padding(bottom = 8.dp)
+            modifier = Modifier.padding(bottom = 8.dp, start = 4.dp)
         )
 
         LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 100.dp),
+            columns = GridCells.Adaptive(minSize = 110.dp),
             modifier = Modifier.fillMaxSize(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
-            contentPadding = PaddingValues(4.dp)
         ) {
             items(products) { product ->
                 ProductTile(product = product, onClick = { onProductClick(product) })
@@ -55,14 +56,13 @@ fun ProductTile(
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(1f)
-            .clickable(onClick = onClick)
-            .background(color = colorFromHex(product.colorHex)),
+            .clickable(onClick = onClick),
         elevation = 4.dp
     ) {
         Column(
             modifier = Modifier
-                .padding(8.dp)
-                .fillMaxSize(),
+                .fillMaxSize()
+                .background(color = dimOutColor(colorFromHex(product.colorHex))),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

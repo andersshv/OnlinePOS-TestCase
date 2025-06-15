@@ -42,8 +42,33 @@ class MainViewModel {
         }
     }
 
+    fun increaseQuantity(productId: String) {
+        cartItems = cartItems.map {
+            if (it.product.id == productId) it.copy(quantity = it.quantity + 1) else it
+        }
+    }
+
+    fun decreaseQuantity(productId: String) {
+        cartItems = cartItems.mapNotNull {
+            if (it.product.id == productId) {
+                if (it.quantity > 1) it.copy(quantity = it.quantity - 1) else null
+            } else it
+        }
+    }
+
+//    fun removeFromCart(productId: String) {
+//        cartItems = cartItems.filterNot { it.product.id == productId }
+//    }
+
     fun removeFromCart(productId: String) {
-        cartItems = cartItems.filterNot { it.product.id == productId }
+        cartItems = cartItems.flatMap {
+            if (it.product.id == productId) {
+                if (it.quantity > 1) listOf(it.copy(quantity = it.quantity - 1))
+                else emptyList() // remove if quantity is 1
+            } else {
+                listOf(it)
+            }
+        }
     }
 
     fun clearCart() {

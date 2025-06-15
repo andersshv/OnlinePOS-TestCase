@@ -13,7 +13,7 @@ fun MainScreen(
     Row(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 16.dp),
     ) {
         // Product Groups (Left Sidebar)
         ProductGroupList(
@@ -35,6 +35,7 @@ fun MainScreen(
                 .weight(1f)
                 .fillMaxHeight()
         )
+
 
         Spacer(modifier = Modifier.width(16.dp))
 

@@ -1,3 +1,20 @@
+TODOS:
+Garbage can, top right, for reset entire order, with popup dialog
+Padding added on product cards, and styling of cards
+Check efter om der mangler nogen obligatoriske ting
+
+Noget action ved click på PAY
+Et dark theme for diskoteker etc.
+Noget med ekstra tilføjelser på enkelte ordrer, specialisering af ordrer
+
+Betaling og ordre skal være afkoblet, så hvis en historik ordrer loades ind så skal den kunne betales lige frem
+
+*************
+
+Product click increase, garbage can decrease, no need for - and +.
+
+************
+
 black bg for sunny weather
 and sharp colors darkish for visibility, with white text?
 

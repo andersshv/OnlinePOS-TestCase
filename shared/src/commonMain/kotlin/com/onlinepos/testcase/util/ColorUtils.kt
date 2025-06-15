@@ -1,7 +1,6 @@
 package com.onlinepos.testcase.util
 
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.intl.Locale
 
 fun colorFromHex(hex: String): Color {
     val cleanHex = hex.removePrefix("#")
@@ -11,6 +10,10 @@ fun colorFromHex(hex: String): Color {
     } else {
         Color(parsed.toInt())
     }
+}
+
+fun dimOutColor(color: Color): Color {
+    return color.copy(alpha = 0.2f)
 }
 
 fun formatPrice(price: Double): String =
