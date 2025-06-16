@@ -7,6 +7,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,7 +50,7 @@ fun CartView(
                         item = item,
                         onIncrease = { viewModel.increaseQuantity(item.product.id) },
                         onDecrease = { viewModel.decreaseQuantity(item.product.id) },
-                        onRemove = { viewModel.removeFromCart(item.product.id) }
+                        onRemove = { viewModel.removeOneFromCart(item.product.id) }
                     )
                 }
 
@@ -68,7 +69,7 @@ fun CartView(
                 onClick = { viewModel.simulatePayment() },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Icon(Icons.Default.Delete, contentDescription = null)
+                Icon(Icons.Default.Done, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
                 Text("Pay")
             }

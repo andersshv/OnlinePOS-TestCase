@@ -25,6 +25,17 @@ class MainViewModel {
 
     // --- Actions ---
 
+    init {
+        preloadCartItems()
+    }
+
+    private fun preloadCartItems() {
+        val itemsToPreload = MockData.products.take(8) // first 8 products
+        cartItems = itemsToPreload.map { product ->
+            CartItem(product = product, quantity = 1)
+        }
+    }
+
     fun selectGroup(group: ProductGroup) {
         selectedGroup = group
     }
@@ -56,11 +67,11 @@ class MainViewModel {
         }
     }
 
-//    fun removeFromCart(productId: String) {
-//        cartItems = cartItems.filterNot { it.product.id == productId }
-//    }
+    fun removeAllFromCart(productId: String) {
+        cartItems = cartItems.filterNot { it.product.id == productId }
+    }
 
-    fun removeFromCart(productId: String) {
+    fun removeOneFromCart(productId: String) {
         cartItems = cartItems.flatMap {
             if (it.product.id == productId) {
                 if (it.quantity > 1) listOf(it.copy(quantity = it.quantity - 1))

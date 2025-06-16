@@ -18,7 +18,7 @@ fun dimOutColor(color: Color): Color {
 
 fun formatPrice(price: Double): String =
     price.toString().takeWhile { it != '.' } +
-            "." +
+            "," +
             (price.toString().substringAfter(".", "00") + "00").take(2)
 
 

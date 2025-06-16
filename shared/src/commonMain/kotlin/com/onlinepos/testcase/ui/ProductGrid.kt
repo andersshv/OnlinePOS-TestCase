@@ -62,9 +62,10 @@ fun ProductTile(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = dimOutColor(colorFromHex(product.colorHex))),
+                .background(color = dimOutColor(colorFromHex(product.colorHex)))
+                .padding(8.dp),
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.Start // 👈 Force left-align
         ) {
             Text(text = product.name, style = MaterialTheme.typography.body1)
             Spacer(modifier = Modifier.height(4.dp))
