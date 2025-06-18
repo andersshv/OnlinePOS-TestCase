@@ -1,13 +1,13 @@
 ***************************
 
-To review and test the program clone the repository to local pc.
-In the clone is two zip files.
-The first one contains the exe file.
-  - Once it is unpacked double-click the exe file to run the program
+To review and test the program clone this repository out to your local pc.
+In the clone is a zip files.
+It containes the exe file. 
+Unpack it and double-click the exe file to run the program
 
-The second one contains the apk file
-  - Once it is unpacked transfer the apk install it on a phone
-  - Or on an emulator on the pc
+Also in the clone out is an apk file
+Copy the apk to your device and install it on your device
+to test it there.
 
 ***************************
 
@@ -49,8 +49,6 @@ too complicated I thought.
 Another thing that could be added by default was minor changes
 to each product, and maybe some icons for the groups and the
 products, but I didn't get to that.
-
-*****************************
 
 I hope you like the program, anyways :)
 
