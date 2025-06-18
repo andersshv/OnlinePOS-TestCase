@@ -11,7 +11,7 @@ To review and test the program:
 
 ***************************
 
-Program Layout and Functionality
+Program Layout and Functionality.
 
 The application layout is divided into three main sections:
 - Left: Product Groups.
@@ -30,10 +30,10 @@ Adding and Removing Items.
 
 Clearing and Completing Orders.
 - Clear Order:
-The garbage can icon next to the total amount clears the entire cart. A confirmation dialog will appear first.
+  - The garbage can icon next to the total amount clears the entire cart. A confirmation dialog will appear first.
 
 - Pay:
-Clicking the Pay button at the bottom opens a dialog that:
+  - Clicking the Pay button at the bottom opens a dialog that:
     - Displays the total amount,
     - Shows a visual wait indicator,
     - Gives the salesperson time to handle payment. The order is only cleared once “Payment Received” is confirmed.
