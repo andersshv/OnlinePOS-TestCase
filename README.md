@@ -11,7 +11,7 @@ To review and test the program:
 
 ***************************
 
-Program Layout and Functionality.
+Program Layout and Functionality:
 
 - The application layout is divided into three main sections:
   - Left: Product Groups.
@@ -22,7 +22,7 @@ Each section supports scrolling independently.
 
 ***************************
 
-Adding and Removing Items.
+Adding and Removing Items:
 
 - Add to Cart: 
   - Click a product tile in the center section, or use the plus (+) button next to an item already in the cart.
@@ -33,7 +33,8 @@ Adding and Removing Items.
 
 ***************************
 
-Clearing and Completing Orders.
+Clearing and Completing Orders:
+
 - Clear Order:
   - The garbage can icon next to the total amount clears the entire cart. A confirmation dialog will appear first.
 
