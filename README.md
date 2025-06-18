@@ -3,9 +3,9 @@
 To review and test the program clone this repository out to your local pc.
 In the clone is a zip files.
 It containes the exe file. 
-Unpack it and double-click the exe file to run the program
+Unpack it and double-click the exe file to run the program.
 
-Also in the clone out is an apk file
+Also in the clone out is an apk file.
 Copy the apk to your device and install it on your device
 to test it there.
 
