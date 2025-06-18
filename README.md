@@ -20,6 +20,7 @@ Program Layout and Functionality.
 
 Each section supports scrolling independently.
 
+***************************
 
 Adding and Removing Items.
 
@@ -30,6 +31,7 @@ Adding and Removing Items.
   - Use the minus (-) button to decrease quantity. To fully remove an item, click the garbage can icon 
   next to it (the minus button does not remove the last unit).
 
+***************************
 
 Clearing and Completing Orders.
 - Clear Order:
