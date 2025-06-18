@@ -14,19 +14,19 @@ To review and test the program:
 Program Layout and Functionality
 
 The application layout is divided into three main sections:
-1. Left: Product Groups.
-2. Center: Products belonging to the selected group.
-3. Right: Current Order (Cart Contents).
+- Left: Product Groups.
+- Center: Products belonging to the selected group.
+- Right: Current Order (Cart Contents).
 Each section supports scrolling independently.
+
 
 Adding and Removing Items.
 - Add to Cart: 
-Click a product tile in the center section, 
-or use the plus (+) button next to an item already in the cart.
+  - Click a product tile in the center section, or use the plus (+) button next to an item already in the cart.
 - Remove from Cart:
-Use the minus (-) button to decrease quantity.
-To fully remove an item, click the garbage can icon 
-next to it (the minus button does not remove the last unit).
+  - Use the minus (-) button to decrease quantity. To fully remove an item, click the garbage can icon 
+  next to it (the minus button does not remove the last unit).
+
 
 Clearing and Completing Orders.
 - Clear Order:
