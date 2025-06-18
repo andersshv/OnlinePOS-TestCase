@@ -11,22 +11,38 @@ To review and test the program:
 
 ***************************
 
-The layout of the program is separated in three sections:
-  - To the left: Product groups
-  - In the middle: Products for the selected product group
-  - To the right: The contents of the current order
-All three sections are scroll views.
-Items are added to the cart by clicking the product tiles,
-or by clicking the plus for items already in the cart.
-Items are removed from the cart by clicking the minus or
-or the garbage can at each cart item.
-The minus cannot remove the list item, here the garbage can 
-must be used.
-The garbage can next to the total amount is used to clear 
-the order, but it first presents a confirm dialog.
-The Pay-button at the bottom, also first presents a dialog
-when clicked, so the sales person have time to receive
-money from the customer before the order is cleared.
+🧾 Program Layout and Functionality
+The application layout is divided into three main sections:
+
+Left: Product Groups
+
+Center: Products belonging to the selected group
+
+Right: Current Order (Cart Contents)
+
+Each section supports scrolling independently.
+
+🛒 Adding and Removing Items
+Add to Cart:
+Click a product tile in the center section, or use the plus (+) button next to an item already in the cart.
+
+Remove from Cart:
+Use the minus (-) button to decrease quantity.
+To fully remove an item, click the garbage can icon next to it (the minus button does not remove the last unit).
+
+🧹 Clearing and Completing Orders
+Clear Order:
+The garbage can icon next to the total amount clears the entire cart. A confirmation dialog will appear first.
+
+Pay:
+Clicking the Pay button at the bottom opens a dialog that:
+
+Displays the total amount,
+
+Shows a visual wait indicator,
+
+Gives the salesperson time to handle payment.
+The order is only cleared once “Payment Received” is confirmed.
 
 ************************
 
