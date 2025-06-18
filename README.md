@@ -52,21 +52,23 @@ program opens.
 I was thinking about adding more functionality to the
 program, f.ex. a settings button somewhere, but I struggled
 with where to put it. Also, I like when this primary UI is
-clean, and doesnt have to much config buttons.
+clean, and doesn't have to much config buttons.
 Another exe-file could access a config/setup program,
-from where the primaty program could be administered.
+from where the primary program could be administered.
 F.ex. if more groups or products should be added, or the pricing
 should be adjusted or if the program should be in dark mode,
-or diskoteque mode, or some other flavours/designs, matching the
+or discotheque mode, or some other flavours/designs, matching the
 actual shop.
+
 Also I was thinking about having some order history that
 the sales person could pull out. But again it should not be
 too complicated I thought.
+
 Another thing that could be added by default was minor changes
 to each product, and maybe some icons for the groups and the
 products, but I didn't get to that.
 
-I hope you like the program, anyways :)
+I hope you like the program, anyway :)
 
 
 
