@@ -1,3 +1,5 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -6,9 +8,7 @@ plugins {
 
 kotlin {
     androidTarget()
-
     jvm("desktop")
-
     listOf(
         iosX64(),
         iosArm64(),
@@ -49,6 +49,7 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.common)
+                implementation("org.jetbrains.skiko:skiko-awt-runtime-windows-x64:0.7.86")
             }
         }
     }
@@ -73,3 +74,27 @@ android {
         jvmToolchain(17)
     }
 }
+
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+
+        nativeDistributions {
+            targetFormats(
+                TargetFormat.Exe,
+                TargetFormat.Msi
+            )
+
+            packageName = "OnlinePOS-TestCase"
+            packageVersion = "1.0.0"
+
+            windows {
+                menuGroup = "OnlinePOS-TestCase"
+                upgradeUuid = "12999678-1294-1234-1256-123456789abc" // Use any UUID
+                console = true
+                iconFile.set(project.file("src/desktopMain/resources/icon.ico"))
+            }
+        }
+    }
+}
+

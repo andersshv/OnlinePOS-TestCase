@@ -12,6 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.onlinepos.testcase.model.Product
 import com.onlinepos.testcase.model.ProductGroup
@@ -35,7 +36,7 @@ fun ProductGrid(
         )
 
         LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 110.dp),
+            columns = GridCells.Adaptive(minSize = 120.dp),
             modifier = Modifier.fillMaxSize(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -59,17 +60,30 @@ fun ProductTile(
             .clickable(onClick = onClick),
         elevation = 4.dp
     ) {
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(color = dimOutColor(colorFromHex(product.colorHex)))
-                .padding(8.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.Start // 👈 Force left-align
+                .padding(horizontal = 8.dp) // general horizontal padding
         ) {
-            Text(text = product.name, style = MaterialTheme.typography.body1)
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(text = formatPrice(product.price), style = MaterialTheme.typography.caption)
+            // Product name with more top padding
+            Text(
+                text = product.name,
+                style = MaterialTheme.typography.body1,
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .padding(top = 16.dp)
+            )
+
+            // Price with more bottom padding
+            Text(
+                text = formatPrice(product.price),
+//                fontWeight = FontWeight.SemiBold,
+//                style = MaterialTheme.typography.body1.copy(fontWeight = FontWeight.Bold),
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(bottom = 16.dp, end = 16.dp)
+            )
         }
     }
 }

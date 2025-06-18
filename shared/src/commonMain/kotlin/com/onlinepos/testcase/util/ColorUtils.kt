@@ -15,11 +15,3 @@ fun colorFromHex(hex: String): Color {
 fun dimOutColor(color: Color): Color {
     return color.copy(alpha = 0.2f)
 }
-
-fun formatPrice(price: Double): String =
-    price.toString().takeWhile { it != '.' } +
-            "," +
-            (price.toString().substringAfter(".", "00") + "00").take(2)
-
-
-

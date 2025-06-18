@@ -70,33 +70,39 @@ object MockData {
     )
 
     val products = listOf(
-        Product("p100", Group1.name, "Big Burger", groupColor(Group1), 2.5),
-        Product("p101", Group1.name, "Cheese Burger", groupColor(Group1), 2.5),
-        Product("p102", Group1.name, "Bacon Cheese Burger", groupColor(Group1), 2.5),
-        Product("p103", Group1.name, "Chicken Burger", groupColor(Group1), 2.5),
+        Product("p100", Group1.name, "Big Burger", groupColor(Group1), 62.5),
+        Product("p101", Group1.name, "Cheese Burger", groupColor(Group1), 65.5),
+        Product("p102", Group1.name, "Bacon Cheese Burger", groupColor(Group1), 71.5),
+        Product("p103", Group1.name, "Chicken Burger", groupColor(Group1), 60.5),
 
-        Product("p200", Group2.name, "Tuna Sandwich", groupColor(Group2), 1.0),
-        Product("p201", Group2.name, "Egg and Bacon Sandwich", groupColor(Group2), 1.5),
+        Product("p200", Group2.name, "Tuna Sandwich", groupColor(Group2), 58.0),
+        Product("p201", Group2.name, "Egg and Bacon Sandwich", groupColor(Group2), 55.0),
 
-        Product("p300", Group3.name, "Margarita", groupColor(Group3), 2.0),
-        Product("p301", Group3.name, "Hawaii", groupColor(Group3), 5.0),
-        Product("p302", Group3.name, "Napoli", groupColor(Group3), 5.0),
-        Product("p303", Group3.name, "Verona", groupColor(Group3), 5.0),
-        Product("p304", Group3.name, "Barcelona", groupColor(Group3), 5.0),
-        Product("p305", Group3.name, "Special Pizza", groupColor(Group3), 5.0),
-        Product("p306", Group3.name, "Chef Fantasy", groupColor(Group3), 5.0),
-        Product("p307", Group3.name, "Gorgonzola", groupColor(Group3), 5.0),
+        Product("p300", Group3.name, "Margarita", groupColor(Group3), 70.0),
+        Product("p301", Group3.name, "Hawaii", groupColor(Group3), 72.0),
+        Product("p302", Group3.name, "Napoli", groupColor(Group3), 74.0),
+        Product("p303", Group3.name, "Verona", groupColor(Group3), 75.0),
+        Product("p304", Group3.name, "Barcelona", groupColor(Group3), 80.0),
+        Product("p305", Group3.name, "Special Pizza", groupColor(Group3), 85.0),
+        Product("p306", Group3.name, "Chef Fantasy", groupColor(Group3), 87.5),
+        Product("p307", Group3.name, "Gorgonzola", groupColor(Group3), 75.5),
 
-        Product("p400", Group4.name, "Coca Cola", groupColor(Group4), 6.5),
-        Product("p401", Group4.name, "Pepsi Cola", groupColor(Group4), 6.5),
-        Product("p402", Group4.name, "Squash", groupColor(Group4), 6.5),
-        Product("p403", Group4.name, "Lemon", groupColor(Group4), 6.5),
+        Product("p400", Group4.name, "Coca Cola", groupColor(Group4), 20.0),
+        Product("p401", Group4.name, "Pepsi Cola", groupColor(Group4), 20.0),
+        Product("p402", Group4.name, "Fanta", groupColor(Group4), 20.0),
+        Product("p403", Group4.name, "Squash", groupColor(Group4), 20.0),
+        Product("p404", Group4.name, "Lemon", groupColor(Group4), 20.0),
+        Product("p405", Group4.name, "Juice", groupColor(Group4), 15.0),
+        Product("p406", Group4.name, "Milk", groupColor(Group4), 10.0),
 
-        Product("p500", Group5.name, "Funny Meal", groupColor(Group5), 6.5),
+        Product("p500", Group5.name, "Funny Meal w. Cola", groupColor(Group5), 100.0),
+        Product("p501", Group5.name, "Funny Meal w. Fanta", groupColor(Group5), 100.0),
+        Product("p502", Group5.name, "Funny Meal w. Juice", groupColor(Group5), 95.0),
+        Product("p503", Group5.name, "Funny Meal w. Milk", groupColor(Group5), 90.0),
 
-        Product("p600", Group6.name, "Cesar Salad", groupColor(Group6), 6.5),
+        Product("p600", Group6.name, "Cesar Salad", groupColor(Group6), 45.0),
 
-        Product("p700", Group7.name, "Garlic Bread", groupColor(Group7), 6.5),
+        Product("p700", Group7.name, "Garlic Bread", groupColor(Group7), 16.5),
 
 //        Product("p800", Group8.name, "Garlic Bread", groupColor(Group8), 6.5),
 //

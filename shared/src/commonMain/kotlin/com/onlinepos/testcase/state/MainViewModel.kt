@@ -26,7 +26,7 @@ class MainViewModel {
     // --- Actions ---
 
     init {
-        preloadCartItems()
+//        preloadCartItems()
     }
 
     private fun preloadCartItems() {

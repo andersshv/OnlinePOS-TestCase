@@ -8,9 +8,22 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Done
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.onlinepos.testcase.model.CartItem
 import com.onlinepos.testcase.state.MainViewModel
@@ -23,9 +36,11 @@ fun CartView(
     viewModel: MainViewModel,
     modifier: Modifier = Modifier
 ) {
+    var showClearAllDialog by remember { mutableStateOf(false) }
+    var showCompletePaymentDialog by remember { mutableStateOf(false) }
+
     Column(
-        modifier = modifier
-            .fillMaxHeight(),
+        modifier = modifier.fillMaxHeight(),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
@@ -43,9 +58,8 @@ fun CartView(
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Text("No products added")
                 }
-            }
-            else {
-                viewModel.cartItems.sortedBy{ it.product.groupId }.forEach { item ->
+            } else {
+                viewModel.cartItems.sortedBy { it.product.groupId }.forEach { item ->
                     CartItemRow(
                         item = item,
                         onIncrease = { viewModel.increaseQuantity(item.product.id) },
@@ -60,13 +74,32 @@ fun CartView(
 
         // Total + Pay Button
         Column(modifier = Modifier.padding(top = 8.dp)) {
-            Text(
-                text = "Total: " + formatPrice(viewModel.totalPrice),
-                style = MaterialTheme.typography.h6
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Total: " + formatPrice(viewModel.totalPrice),
+                    style = MaterialTheme.typography.h6,
+                    modifier = Modifier.weight(1f)
+                )
+                IconButton(
+                    onClick = {
+                        if (viewModel.cartItems.isNotEmpty()) {
+                            showClearAllDialog = true
+                        }
+                    }
+                ) {
+                    Icon(Icons.Default.Delete, contentDescription = "Clear cart")
+                }
+            }
             Spacer(modifier = Modifier.height(8.dp))
             Button(
-                onClick = { viewModel.simulatePayment() },
+                onClick = {
+                    if (viewModel.cartItems.isNotEmpty()) {
+                        showCompletePaymentDialog = true
+                    }
+                },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Icon(Icons.Default.Done, contentDescription = null)
@@ -74,6 +107,118 @@ fun CartView(
                 Text("Pay")
             }
         }
+    }
+
+    // Confirmation Dialog
+    if (showClearAllDialog) {
+        AlertDialog(
+            onDismissRequest = { showClearAllDialog = false },
+            title = { Text("Clear Order") },
+            text = { Text("Are you sure you want to clear the order and remove all items from the cart?") },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.clearCart()
+                    showClearAllDialog = false
+                }) {
+                    Text("Clear Order")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showClearAllDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+
+    // Payment Dialog
+    if (showCompletePaymentDialog) {
+        AlertDialog(
+            onDismissRequest = { showCompletePaymentDialog = false },
+            buttons = {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(24.dp)
+                ) {
+                    // Cancel X button at top-right
+                    IconButton(
+                        onClick = { showCompletePaymentDialog = false },
+                        modifier = Modifier.align(Alignment.TopEnd)
+                    ) {
+                        Icon(Icons.Default.Close, contentDescription = "Cancel Payment")
+                    }
+
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 16.dp), // space for the X button
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        // Total Text
+                        Text(
+                            text = "Total: " + formatPrice(viewModel.totalPrice),
+                            style = MaterialTheme.typography.h5,
+                            modifier = Modifier.padding(bottom = 32.dp)
+                        )
+
+                        // Blinking Dots
+                        val transition = rememberInfiniteTransition()
+                        val alpha1 by transition.animateFloat(
+                            initialValue = 0.3f,
+                            targetValue = 1f,
+                            animationSpec = infiniteRepeatable(
+                                animation = tween(600),
+                                repeatMode = RepeatMode.Reverse
+                            )
+                        )
+                        val alpha2 by transition.animateFloat(
+                            initialValue = 0.3f,
+                            targetValue = 1f,
+                            animationSpec = infiniteRepeatable(
+                                animation = tween(600, delayMillis = 200),
+                                repeatMode = RepeatMode.Reverse
+                            )
+                        )
+                        val alpha3 by transition.animateFloat(
+                            initialValue = 0.3f,
+                            targetValue = 1f,
+                            animationSpec = infiniteRepeatable(
+                                animation = tween(600, delayMillis = 400),
+                                repeatMode = RepeatMode.Reverse
+                            )
+                        )
+
+                        Row(
+                            modifier = Modifier
+                                .padding(bottom = 32.dp)
+                                .height(24.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Box(modifier = Modifier.size(12.dp).alpha(alpha1).background(MaterialTheme.colors.primary, shape = CircleShape))
+                            Box(modifier = Modifier.size(12.dp).alpha(alpha2).background(MaterialTheme.colors.primary, shape = CircleShape))
+                            Box(modifier = Modifier.size(12.dp).alpha(alpha3).background(MaterialTheme.colors.primary, shape = CircleShape))
+                        }
+
+                        // Payment Received Button
+                        Button(
+                            onClick = {
+                                viewModel.clearCart()
+                                showCompletePaymentDialog = false
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Icon(Icons.Default.Done, contentDescription = null)
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text("Payment Received")
+                        }
+                    }
+                }
+            },
+            backgroundColor = MaterialTheme.colors.surface,
+            contentColor = contentColorFor(MaterialTheme.colors.surface)
+        )
     }
 }
 
@@ -129,6 +274,8 @@ fun CartItemRow(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = formatPrice(item.totalPrice),
+//                    fontWeight = FontWeight.SemiBold,
+//                    style = MaterialTheme.typography.body1.copy(fontWeight = FontWeight.Bold),
                     modifier = Modifier.padding(end = 8.dp)
                 )
                 IconButton(onClick = onRemove) {
