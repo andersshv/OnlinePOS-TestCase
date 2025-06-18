@@ -11,38 +11,31 @@ To review and test the program:
 
 ***************************
 
-🧾 Program Layout and Functionality
+Program Layout and Functionality.
 The application layout is divided into three main sections:
-
-Left: Product Groups
-
-Center: Products belonging to the selected group
-
-Right: Current Order (Cart Contents)
-
+- Left: Product Groups.
+- Center: Products belonging to the selected group.
+- Right: Current Order (Cart Contents).
 Each section supports scrolling independently.
 
-🛒 Adding and Removing Items
-Add to Cart:
-Click a product tile in the center section, or use the plus (+) button next to an item already in the cart.
-
-Remove from Cart:
+Adding and Removing Items.
+- Add to Cart: 
+Click a product tile in the center section, 
+or use the plus (+) button next to an item already in the cart.
+- Remove from Cart:
 Use the minus (-) button to decrease quantity.
-To fully remove an item, click the garbage can icon next to it (the minus button does not remove the last unit).
+To fully remove an item, click the garbage can icon 
+next to it (the minus button does not remove the last unit).
 
-🧹 Clearing and Completing Orders
-Clear Order:
+Clearing and Completing Orders.
+- Clear Order:
 The garbage can icon next to the total amount clears the entire cart. A confirmation dialog will appear first.
 
-Pay:
+- Pay:
 Clicking the Pay button at the bottom opens a dialog that:
-
-Displays the total amount,
-
-Shows a visual wait indicator,
-
-Gives the salesperson time to handle payment.
-The order is only cleared once “Payment Received” is confirmed.
+    - Displays the total amount,
+    - Shows a visual wait indicator,
+    - Gives the salesperson time to handle payment. The order is only cleared once “Payment Received” is confirmed.
 
 ************************
 
