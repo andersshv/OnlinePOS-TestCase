@@ -11,11 +11,12 @@ To review and test the program:
 
 ***************************
 
-Program Layout and Functionality.
+Program Layout and Functionality
+
 The application layout is divided into three main sections:
-- Left: Product Groups.
-- Center: Products belonging to the selected group.
-- Right: Current Order (Cart Contents).
+1. Left: Product Groups.
+2. Center: Products belonging to the selected group.
+3. Right: Current Order (Cart Contents).
 Each section supports scrolling independently.
 
 Adding and Removing Items.
