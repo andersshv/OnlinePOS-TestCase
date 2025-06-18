@@ -1,13 +1,13 @@
 ***************************
 
-To review and test the program clone this repository out to your local pc.
-In the clone is a zip files.
-It containes the exe file. 
-Unpack it and double-click the exe file to run the program.
-
-Also in the clone out is an apk file.
-Copy the apk to your device and install it on your device
-to test it there.
+To review and test the program:
+1. Clone this repository to your local PC.
+2. Inside the cloned repository, you’ll find a ZIP file containing the .exe (Windows) version of the program.
+   - Unpack the ZIP file.
+   - Double-click the .exe file to run the program on your PC.
+3. You’ll also find an APK file for Android.
+   - Copy the APK file to your Android device.
+   - Install it to test the app on your device.
 
 ***************************
 
